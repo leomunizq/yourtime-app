@@ -1,16 +1,20 @@
 import illustrationHome from '../assets/images/Saly-39.svg'
+import Button from '../components/Button'
+
 
 export function Home(){
   return (
     <main>
-    <div>
-    <strong>.youtime</strong>
-<img src={illustrationHome} alt="Illustration Robot" />
+    <div className="container">
+    <h1>.youtime</h1>
+    
+<img src={illustrationHome} alt="Illustration Robot" className="hvr-bob" />
 
-<h2>Make yourself more on time</h2>
-<button>
-  ENTER
-</button>
+<p>Make yourself <br/> more on time</p>
+<div >
+<Button type="submit">ENTER</Button>
+
+</div>
 </div>
 </main>
   )

@@ -1,0 +1,25 @@
+.button {
+  font-family: Montserrat;
+  height: 50px;
+  width: 300px;
+  border-radius: 8px;
+  font-weight: 700;
+  background: #FF4B26;;
+  box-shadow: 0px 10px 26px rgba(231, 96, 71, 0.47);
+  color: #fff;
+  padding: 0 32px;
+
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+
+  cursor: pointer;
+  border: 0;
+  transition: 0.2s;
+  
+
+  &:hover {
+    filter: brightness(0.9);
+  }
+ 
+}
