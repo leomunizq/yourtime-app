@@ -11,7 +11,7 @@ import '../styles/login.scss'
 
 export function Login(){
   return (
-    <div id="page-login">
+    <div id="login-page">
     <main>
       <div className="container">
         <div className="header">
@@ -27,11 +27,11 @@ export function Login(){
         <Button>Login</Button>
         </form>
         </div>
-        <div className="loginwith">
+        <div className="loginwith" >
           <p id="login">sign in with</p>
-          <img src={appleImg} alt="" />
-          <img src={facebookImg} alt="" />
-          <img src={googleImg} alt="" />
+          <img src={appleImg} className="grow" alt="" />
+          <img src={facebookImg} className="grow" alt="" />
+          <img src={googleImg} className="grow" alt="" />
         </div>
       </div>
     </main>

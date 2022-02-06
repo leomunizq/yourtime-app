@@ -1,128 +1,128 @@
 * {
-	margin: 0;
-	padding: 0;
+    padding: 0;
+    margin: 0;
 }
-
 
 body {
-	margin: 0;
-	background: linear-gradient(191.14deg, #1D1D1D -5.44%, #2C1755 52.05%, #1D1D1D 112.41%);
+    padding: 0;
+    margin: 0;
+    background: linear-gradient( 191.14deg, #1D1D1D -5.44%, #2C1755 52.05%, #1D1D1D 112.41%);
+    background-attachment: fixed;
 }
 
-
-.container {
-	display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-	max-width: 25.625rem;
-	margin: 1.875rem auto;
-	overflow: auto;
-	min-height: 18.75rem;
-	border: none;
-	padding: 4.375rem;
-
-
-	h1{
-		font-family: Roboto;
-font-weight: 900;
-font-size: 48px;
-line-height: 56px;
-text-align: center;
-letter-spacing: -0.3px;
-
-color: #FFFFFF;
-margin-bottom: 40px;
-	}
-
-	img{
-		margin-bottom: 26px;
-	}
-	/* Bob */
-@-webkit-keyframes hvr-bob {
-  0% {
-    -webkit-transform: translateY(-8px);
-    transform: translateY(-8px);
-  }
-  50% {
-    -webkit-transform: translateY(-4px);
-    transform: translateY(-4px);
-  }
-  100% {
-    -webkit-transform: translateY(-8px);
-    transform: translateY(-8px);
-  }
+#home-page {
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        max-width: 25.625rem;
+        margin: 1.875rem auto;
+        overflow: auto;
+        min-height: 18.75rem;
+        border: none;
+        padding: 4.375rem;
+        h1 {
+            font-family: Roboto;
+            font-weight: 900;
+            font-size: 48px;
+            line-height: 56px;
+            text-align: center;
+            letter-spacing: -0.3px;
+            color: #FFFFFF;
+            margin-bottom: 40px;
+        }
+        img {
+            margin-bottom: 26px;
+        }
+        /* Bob */
+        @-webkit-keyframes hvr-bob {
+            0% {
+                -webkit-transform: translateY(-8px);
+                transform: translateY(-8px);
+            }
+            50% {
+                -webkit-transform: translateY(-4px);
+                transform: translateY(-4px);
+            }
+            100% {
+                -webkit-transform: translateY(-8px);
+                transform: translateY(-8px);
+            }
+        }
+        @keyframes hvr-bob {
+            0% {
+                -webkit-transform: translateY(-8px);
+                transform: translateY(-8px);
+            }
+            50% {
+                -webkit-transform: translateY(-4px);
+                transform: translateY(-4px);
+            }
+            100% {
+                -webkit-transform: translateY(-8px);
+                transform: translateY(-8px);
+            }
+        }
+        @-webkit-keyframes hvr-bob-float {
+            100% {
+                -webkit-transform: translateY(-8px);
+                transform: translateY(-8px);
+            }
+        }
+        @keyframes hvr-bob-float {
+            100% {
+                -webkit-transform: translateY(-8px);
+                transform: translateY(-8px);
+            }
+        }
+        .hvr-bob {
+            display: inline-block;
+            vertical-align: middle;
+            -webkit-transform: perspective(1px) translateZ(0);
+            transform: perspective(1px) translateZ(0);
+            box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+        }
+        .hvr-bob,
+        .hvr-bob:focus,
+        .hvr-bob:active {
+            -webkit-animation-name: hvr-bob-float, hvr-bob;
+            animation-name: hvr-bob-float, hvr-bob;
+            -webkit-animation-duration: .3s, 1.5s;
+            animation-duration: .3s, 1.5s;
+            -webkit-animation-delay: 0s, .3s;
+            animation-delay: 0s, .3s;
+            -webkit-animation-timing-function: ease-out, ease-in-out;
+            animation-timing-function: ease-out, ease-in-out;
+            -webkit-animation-iteration-count: 1, infinite;
+            animation-iteration-count: 1, infinite;
+            -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            -webkit-animation-direction: normal, alternate;
+            animation-direction: normal, alternate;
+        }
+        p {
+            color: #fff;
+            font-family: Open Sans;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 36px;
+            line-height: 120%;
+            /* or 43px */
+            text-align: center;
+            letter-spacing: -0.3px;
+            margin-bottom: 26px;
+            ;
+        }
+        .Button {
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: bold;
+        }
+    }
 }
-@keyframes hvr-bob {
-  0% {
-    -webkit-transform: translateY(-8px);
-    transform: translateY(-8px);
-  }
-  50% {
-    -webkit-transform: translateY(-4px);
-    transform: translateY(-4px);
-  }
-  100% {
-    -webkit-transform: translateY(-8px);
-    transform: translateY(-8px);
-  }
-}
-@-webkit-keyframes hvr-bob-float {
-  100% {
-    -webkit-transform: translateY(-8px);
-    transform: translateY(-8px);
-  }
-}
-@keyframes hvr-bob-float {
-  100% {
-    -webkit-transform: translateY(-8px);
-    transform: translateY(-8px);
-  }
-}
-.hvr-bob {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-}
-.hvr-bob, .hvr-bob:focus, .hvr-bob:active {
-  -webkit-animation-name: hvr-bob-float, hvr-bob;
-  animation-name: hvr-bob-float, hvr-bob;
-  -webkit-animation-duration: .3s, 1.5s;
-  animation-duration: .3s, 1.5s;
-  -webkit-animation-delay: 0s, .3s;
-  animation-delay: 0s, .3s;
-  -webkit-animation-timing-function: ease-out, ease-in-out;
-  animation-timing-function: ease-out, ease-in-out;
-  -webkit-animation-iteration-count: 1, infinite;
-  animation-iteration-count: 1, infinite;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-  -webkit-animation-direction: normal, alternate;
-  animation-direction: normal, alternate;
-}
-	
-	p{
-
-		color: #fff;
-		font-family: Open Sans;
-		font-style: normal;
-		font-weight: normal;
-		font-size: 36px;
-		line-height: 120%;
-		/* or 43px */
-		
-		text-align: center;
-		letter-spacing: -0.3px;
-		margin-bottom: 26px;;
-	}
-	.Button{
-		font-family: Montserrat;
-font-style: normal;
-font-weight: bold;
-	}
-
-}
-

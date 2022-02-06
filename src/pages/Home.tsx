@@ -14,6 +14,7 @@ export function Home(){
   
    }
   return (
+    <div id="home-page">
     <main>
     <div className="container">
     <h1>.yourtime</h1>
@@ -27,5 +28,6 @@ export function Home(){
 </div>
 </div>
 </main>
+</div>
   )
 }
