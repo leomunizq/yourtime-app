@@ -1,0 +1,33 @@
+.box-todo {
+    display: flex;
+    width: 400px;
+    height: auto;
+    justify-content: left;
+    align-items: flex-start;
+    background: #3C1F7B;
+    border-radius: 8px;
+    flex-direction: column;
+    padding: 10px !important;
+    .line {
+        width: 100%;
+        border: 1px solid #C68AFF;
+        align-items: center;
+        margin: 10px;
+    }
+    ul {
+        margin-top: 10px !important;
+        li {
+            color: #fff;
+            list-style-type: none;
+            margin-bottom: 5px !important;
+            >a {
+                margin-left: 15px !important;
+            }
+        }
+    }
+    h3 {
+        display: flex;
+        margin: 10px !important;
+        color: #fff;
+    }
+}
