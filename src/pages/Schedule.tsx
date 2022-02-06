@@ -1,6 +1,9 @@
 import Todo from '../components/Todo';
 import '../styles/schedule.scss';
 import menu from '../assets/images/menu.svg'
+import { AddButton } from '../components/AddButton';
+
+
 
 export function Schedule(){
   return(
@@ -19,6 +22,7 @@ export function Schedule(){
     <h2>Schedule</h2>
     <Todo></Todo>
   </main>
+  <AddButton></AddButton>
   </div>
   </div>
   )
