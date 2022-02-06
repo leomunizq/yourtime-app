@@ -1,0 +1,87 @@
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 0;
+	background: #1d1d1d;
+}
+
+
+.container {
+  display: flex;
+    flex-wrap: wrap;
+    // justify-content: center;
+    flex-direction: column;
+   
+	max-width: 410px;
+	margin: 30px auto;
+	overflow: auto;
+	min-height: 300px;
+	border: none;
+	padding: 70px;
+	border-radius: 10px;
+  
+  .header #left {
+    text-align: left;
+    margin-left: 0;
+    color: #fff;
+  }
+  form input{
+    width: -webkit-fill-available;
+    height: 55px;
+    border:none;
+    border-radius: 10px;
+    background: #262626;
+    margin-top: 30px;
+    padding-left: 10px;
+  }
+  form button {
+   
+    margin-top: 50px;
+    font-size: 18px;
+    width: 100%;
+    font-style: normal;
+    font-weight: 300;
+  }
+  
+}
+.container .header h2{
+  font-size: 30px;
+  font-family: Poppins;
+		font-style: normal;
+		font-weight: normal;
+    margin-bottom: 22px;
+}
+
+.container p#left{
+  font-size: 16px;
+  font-family: Poppins;
+}
+.container p#login{
+  font-size:15px;
+}
+
+
+.container a{
+  color: #FF4B26;
+  text-decoration:none;
+}
+
+.form{
+  text-align: end;
+  //for edit alignment of "forgot your password˜//
+ 
+}
+.loginwith{
+  margin-top:40px;
+  >p {
+    color: #676767;
+    font-family: Poppins;
+  }
+}
+.loginwith img {
+  margin: 10px;
+}

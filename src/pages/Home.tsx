@@ -1,18 +1,28 @@
+import { useNavigate } from 'react-router';
 import illustrationHome from '../assets/images/Saly-39.svg'
 import Button from '../components/Button'
 
+import '../styles/home.scss';
+
+
 
 export function Home(){
+  const navigate = useNavigate();
+  async function handleLogin(){
+    
+     navigate('/login');
+  
+   }
   return (
     <main>
     <div className="container">
-    <h1>.youtime</h1>
+    <h1>.yourtime</h1>
     
 <img src={illustrationHome} alt="Illustration Robot" className="hvr-bob" />
 
-<p>Make yourself <br/> more on time</p>
+<p>Make yourself<br/>take on time</p>
 <div >
-<Button type="submit">ENTER</Button>
+<Button onClick={handleLogin}>ENTER</Button>
 
 </div>
 </div>
