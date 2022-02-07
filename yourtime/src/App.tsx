@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
+import { NewSchedule } from './pages/NewSchedule';
 import { Register } from './pages/Register';
 import { Schedule } from './pages/Schedule';
 
@@ -18,8 +19,9 @@ function App() {
     <Route path="/" element={<Home />} /> 
     <Route path="/login" element={<Login />}  />
     <Route path="/register" element={<Register />}  />
-    <Route path="/register" element={<Register />}  />
     <Route path="/schedule" element={<Schedule />}  />
+        <Route path="/newschedule" element={<NewSchedule />}  />
+
     {/* <Route path="/rooms/:id" element={<Room />}  /> */}
     {/* <Route path="/admin/rooms/:id" element={<AdminRoom />} /> */}
     </Routes>

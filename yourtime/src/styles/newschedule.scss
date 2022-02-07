@@ -1,0 +1,36 @@
+#newschedule-page {
+    margin: 0;
+    padding: 0;
+    background-clip: padding-box;
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        // justify-content: center;
+        flex-direction: column;
+        max-width: 25.625rem;
+        margin: 0px auto;
+        overflow: auto;
+        height: 100vh;
+        border: none;
+        padding: 0 30px;
+        header {
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-between;
+            .check img {
+                margin-left: 25px;
+            }
+        }
+        h3 {
+            margin-top: 25px;
+            font-size: 22px;
+            color: #fff;
+            font-family: Roboto, "Helvetica";
+            font-weight: normal;
+        }
+    }
+}
