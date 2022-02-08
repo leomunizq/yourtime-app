@@ -63,7 +63,8 @@ export function NewSchedule() {
             </div>
             <div className="remind">
               <p>Remind Me!</p>
-              toggle
+              <i className="bi bi-toggle-on"></i>
+
             </div>
             <div className="notes-todo">
               <input
