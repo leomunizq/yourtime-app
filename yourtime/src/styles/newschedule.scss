@@ -1,60 +1,94 @@
-#newschedule-page {
-    margin: 0;
-    padding: 0;
-    background-clip: padding-box;
-    color: #fff;
-    font-family: Roboto, "Helvetica";
-    font-weight: normal;
-    * {
-        margin: 0;
-        padding: 0;
-    }
-    .container {
-        display: flex;
-        flex-wrap: wrap;
-        // justify-content: center;
-        flex-direction: column;
-        max-width: 25.625rem;
-        margin: 0px auto;
-        overflow: auto;
-        height: 100vh;
-        border: none;
-        padding: 0 30px;
-        header {
-            margin-top: 50px;
-            display: flex;
-            justify-content: space-between;
-            .check img {
-                margin-left: 25px;
+        #newschedule-page {
+            margin: 0;
+            padding: 0;
+            background-clip: padding-box;
+            color: #fff;
+            font-family: Roboto, "Helvetica";
+            font-weight: normal;
+            * {
+                margin: 0;
+                padding: 0;
             }
-            .arrow img {
-                cursor: pointer;
-            }
-        }
-        h3 {
-            margin-top: 25px;
-            margin-bottom: 20px;
-            font-size: 22px;
-        }
-        form {
-            .title-todo input {
-                width: 100%;
-                height: 32px;
-                background: #CCC2FE;
-                border-radius: 4px;
-                border: none;
-            }
-            .pick-day,
-            .pick-time,
-            .remind {
+            .container {
                 display: flex;
-                justify-content: space-between;
-                margin-top: 25px;
-            }
-            .MuiInputBase-input {
-                color: rgb(167, 164, 164);
-                font-size: 14px;
+                flex-wrap: wrap;
+                // justify-content: center;
+                flex-direction: column;
+                max-width: 25.625rem;
+                margin: 0px auto;
+                overflow: auto;
+                height: 100vh;
+                border: none;
+                padding: 0 30px;
+                header {
+                    margin-top: 50px;
+                    display: flex;
+                    justify-content: space-between;
+                    .check img {
+                        margin-left: 25px;
+                    }
+                    .arrow img {
+                        cursor: pointer;
+                    }
+                }
+                h3 {
+                    margin-top: 25px;
+                    margin-bottom: 20px;
+                    font-size: 22px;
+                }
+                form {
+                    .title-todo input,
+                    .notes-todo input,
+                    .place-todo input {
+                        width: 98%;
+                        height: 32px;
+                        background: #CCC2FE;
+                        border-radius: 4px;
+                        border: none;
+                        padding-left: 2%;
+                    }
+                    .pick-day,
+                    .pick-time,
+                    .remind,
+                    .notes-todo,
+                    .place-todo {
+                        display: flex;
+                        justify-content: space-between;
+                        margin-top: 25px;
+                    }
+                    .MuiInputBase-input {
+                        color: rgb(167, 164, 164);
+                        font-size: 14px;
+                    }
+                    .notes-todo input {
+                        height: 130px;
+                    }
+                    .pick-project {
+                        margin-top: 25px;
+                        .projects {
+                            display: flex;
+                            flex-wrap: wrap;
+                            margin-top: 25px;
+                            justify-content: center;
+                            .project {
+                                border: none;
+                                border-radius: 5px;
+                                padding: 8px 15px;
+                                margin: 5px;
+                                cursor: pointer;
+                                background: #CCC2FE;
+                                opacity: 0.8;
+                                color: gray;
+                            }
+                            .project:hover {
+                                opacity: 1.0;
+                                transition: 1s
+                            }
+                        }
+                        .project .active {
+                            background: #332b5c;
+                        }
+                    }
+                }
             }
         }
-    }
-}

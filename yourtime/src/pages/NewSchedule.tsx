@@ -6,11 +6,13 @@ import {
 } from '@material-ui/pickers'
 import DateFnsUtils from '@date-io/date-fns'
 
+
 import '../styles/newschedule.scss'
 
 import arrowBack from '../assets/images/arrow.svg'
 import checkOk from '../assets/images/check-ok.svg'
 import create from '../assets/images/create.svg'
+import { Bell } from 'react-bootstrap-icons'
 
 export function NewSchedule() {
   const [text, setText] = useState('')
@@ -64,6 +66,8 @@ export function NewSchedule() {
             <div className="remind">
               <p>Remind Me!</p>
               <i className="bi bi-toggle-on"></i>
+              <Bell />
+
 
             </div>
             <div className="notes-todo">
@@ -87,9 +91,9 @@ export function NewSchedule() {
                 <p>Choose a project</p>
               </div>
               <div className="projects">
-                <div className="project active">personal</div>
-                <div className="project">work</div>
-                <div className="project">Others</div>
+                <div className="project active">Others</div>
+                <div className="project">Work</div>
+                <div className="project">React</div>
               </div>
             </div>
           </form>
