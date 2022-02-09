@@ -14,6 +14,7 @@ import checkOk from '../assets/images/check-ok.svg'
 import create from '../assets/images/create.svg'
 import { Bell } from 'react-bootstrap-icons'
 
+
 export function NewSchedule() {
   const [text, setText] = useState('')
   const [day, setDay] = useState<Date | null>(new Date())
@@ -21,6 +22,7 @@ export function NewSchedule() {
 
   const [note, setNote] = useState('')
   const [place, setPlace] = useState('')
+
 
   return (
     <div id="newschedule-page">
@@ -67,6 +69,7 @@ export function NewSchedule() {
               <p>Remind Me!</p>
               <i className="bi bi-toggle-on"></i>
               <Bell />
+              
 
 
             </div>
