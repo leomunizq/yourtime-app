@@ -26,6 +26,7 @@
                     justify-content: space-between;
                     .check img {
                         margin-left: 25px;
+                        cursor: pointer;
                     }
                     .arrow img {
                         cursor: pointer;
@@ -69,7 +70,7 @@
                             display: flex;
                             flex-wrap: wrap;
                             margin-top: 25px;
-                            justify-content: center;
+                            justify-content: space-between;
                             .project {
                                 border: none;
                                 border-radius: 5px;
@@ -81,12 +82,15 @@
                                 color: gray;
                             }
                             .project:hover {
+                                background: #503eaa;
+                                color: white;
                                 opacity: 1.0;
                                 transition: 1s
                             }
-                        }
-                        .project .active {
-                            background: #332b5c;
+                            .active {
+                                background: #503eaa;
+                                color: white;
+                            }
                         }
                     }
                 }

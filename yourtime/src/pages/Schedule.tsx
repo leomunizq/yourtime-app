@@ -14,12 +14,17 @@ export function Schedule() {
           <h1> .yourtime</h1>
 
           <div className="doisbuttons">
-            <button>Schedule</button>
+            <button className="active">Schedule</button>
             <button>Projects</button>
           </div>
         </header>
         <main>
           <h2>Schedule</h2>
+          <Todo></Todo>
+          <Todo></Todo>
+          <Todo></Todo>
+          <Todo></Todo>
+          <Todo></Todo>
           <Todo></Todo>
         </main>
         <AddButton></AddButton>

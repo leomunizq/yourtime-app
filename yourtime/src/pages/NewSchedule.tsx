@@ -94,6 +94,8 @@ export function NewSchedule() {
                 <div className="project active">Others</div>
                 <div className="project">Work</div>
                 <div className="project">React</div>
+                
+
               </div>
             </div>
           </form>
