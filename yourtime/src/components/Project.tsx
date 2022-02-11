@@ -7,6 +7,7 @@ import { Projects } from '../pages/Projects'
 import EditIcon from '@mui/icons-material/Edit'
 import Arrow from '@mui/icons-material/KeyboardArrowDownOutlined'
 import Todo from './Todo'
+import AddNewProject from './AddNewProject'
 // import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
 
 export function Project({ project }: any) {
@@ -17,6 +18,7 @@ export function Project({ project }: any) {
         <h2> {project.name}</h2>
      
         <div className="icons">
+          
           <EditIcon />
           <Arrow />
         </div>

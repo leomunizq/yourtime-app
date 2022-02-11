@@ -1,13 +1,10 @@
 import React, { useState } from 'react'
 // import Todo from '../components/Todo';
 import '../styles/schedule.scss'
+import '../styles/todo.scss'
 
 import { AddButton } from '../components/AddButton'
 
-import Todo from '../components/Todo'
-import EditIcon from '@mui/icons-material/Edit'
-import Arrow from '@mui/icons-material/KeyboardArrowDownOutlined'
-import AddIcon from '@mui/icons-material/AddOutlined'
 import Project from '../components/Project'
 
 export function Projects() {
