@@ -1,12 +1,13 @@
 import React, {useState} from 'react'
 import Modal from './Modal'
 import ProjectForm from './ProjectForm'
-import { Plus } from 'react-bootstrap-icons'
+
+import AddIcon from '@mui/icons-material/Add';
 
 function AddNewProject(){
     const [showModal, setShowModal] = useState(false)
     const [projectName, setProjectName] = useState('')
-    function handleSubmit(e){
+    function handleSubmit(e:any){
 
     }
 
@@ -14,7 +15,7 @@ function AddNewProject(){
         <div className='AddNewProject'>
             <div className="add-button">
                 <span onClick={() => setShowModal(true)}>
-                    <Plus size="20" />
+                    <AddIcon fontSize="large" />
                 </span>
             </div>
             <Modal showModal={showModal} setShowModal={setShowModal}>

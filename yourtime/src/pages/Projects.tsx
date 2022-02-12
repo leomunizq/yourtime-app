@@ -3,13 +3,13 @@ import React, { useState } from 'react'
 import '../styles/schedule.scss'
 import '../styles/todo.scss'
 
-import { AddButton } from '../components/AddButton'
+import AddButton from '../components/AddButton';
 
 import Project from '../components/Project'
 
 export function Projects() {
-  const [showMenu, setShowMenu] = useState(true)
-  const [edit, setEdit] = useState(false)
+  // const [showMenu, setShowMenu] = useState(true)
+  // const [edit, setEdit] = useState(false)
 
   const projects = [
     { id: 1, name: 'React', numOfTodos: 0 },
@@ -31,8 +31,7 @@ export function Projects() {
         </header>
         <main>
           <div id="projects">
-            <h2>
-              {' '}
+             
               {projects.map(project => (
                 <Project
                   project={project}
@@ -40,8 +39,6 @@ export function Projects() {
                 
                 />
               ))}
-            </h2>
-           
           </div>
         </main>
         <AddButton />

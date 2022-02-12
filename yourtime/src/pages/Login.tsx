@@ -17,7 +17,7 @@ export function Login(){
         <div className="header">
         <h1 id="left">.yourtime</h1>
         <h2 id="left">Sign in to <br/> To-do list is simple</h2>.
-        <p id="left">If you don't have an account register <br/> You can <a href="">Register here!</a></p>
+        <p id="left">If you don't have an account register <br/> You can <a href="#">Register here!</a></p>
         </div>
         <div className="form">
         <form>

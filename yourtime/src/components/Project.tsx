@@ -1,16 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import '../styles/todo.scss'
-import DeleteIcon from '@mui/icons-material/Delete'
-import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank'
-import { Projects } from '../pages/Projects'
+
 import EditIcon from '@mui/icons-material/Edit'
 import Arrow from '@mui/icons-material/KeyboardArrowDownOutlined'
 import Todo from './Todo'
-import AddNewProject from './AddNewProject'
+import Modal from './Modal'
+import RenameProject from './RenameProject'
 // import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
 
 export function Project({ project }: any) {
+  const [showModal, setShowModal] = useState(false)
+  
   return (
     
     <div id="projects">
@@ -19,12 +20,16 @@ export function Project({ project }: any) {
      
         <div className="icons">
           
-          <EditIcon />
+          <EditIcon   onClick={ () => setShowModal(true)} />
           <Arrow />
         </div>
       </div>
       <Todo />
+      <Modal showModal={showModal} setShowModal={setShowModal}>
+                <RenameProject project={project} setShowModal={setShowModal}/>
+            </Modal>
     </div>
+    
     
   )
 }

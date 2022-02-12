@@ -1,0 +1,81 @@
+/* Modal */
+
+.Modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: 99;
+}
+
+.Modal .container2 {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -25%);
+    width: 300px;
+    height: 300px;
+    h3 {
+        color: rgb(255, 255, 255);
+    }
+}
+
+
+/* ProjectForm */
+
+.ProjectForm {
+    padding: 1rem !important;
+    border-radius: 4px;
+    position: relative;
+    padding-bottom: 40px !important;
+    background-color: rgba(255, 255, 255, .15);
+    backdrop-filter: blur(5px);
+}
+
+.ProjectForm input {
+    width: 100%;
+    height: 40px;
+    margin: 15px 0 !important;
+    border: none;
+    font-size: 1.2rem;
+    background: transparent;
+    color: rgb(240, 240, 240);
+}
+
+.ProjectForm input:focus {
+    outline: none;
+    border-bottom: 1px solid #0080ff;
+}
+
+input::placeholder {
+    color: rgb(150, 149, 149);
+}
+
+.ProjectForm button {
+    position: absolute;
+    bottom: 0;
+    height: 40px;
+    width: 50%;
+    border: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: filter 300ms ease-in-out;
+}
+
+.ProjectForm button.cancel {
+    left: 0;
+    background-color: #bebebe;
+}
+
+.ProjectForm button.confirm {
+    right: 0;
+    background-color: #0080ff;
+}
+
+.ProjectForm button:hover {
+    filter: brightness(1.1);
+}

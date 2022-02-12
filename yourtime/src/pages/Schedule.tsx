@@ -1,7 +1,7 @@
 import Todo from '../components/Todo';
 import '../styles/schedule.scss';
 // import menu from '../assets/images/menu.svg'
-import { AddButton } from '../components/AddButton';
+import AddButton from '../components/AddButton';
 
 
 
