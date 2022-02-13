@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import '../styles/todo.scss'
 
+
 import EditIcon from '@mui/icons-material/Edit'
 import Arrow from '@mui/icons-material/KeyboardArrowDownOutlined'
 import Todo from './Todo'
@@ -10,8 +11,32 @@ import RenameProject from './RenameProject'
 // import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
 
 export function Project({ project }: any) {
+  const todos = [
+    {
+        id : 'd54sd4',
+        text : 'Dinner with Anna',
+        time : '10:00 AM',
+        date : '16/02/2021',
+        day : 'February 16th',
+        checked : true,
+        color : '#00ff00',
+        project : 'React',
+        Note : 'dont forget to give her a bouquet of flowers',
+    },
+    {
+      id : 'd54ff4',
+      text : 'Testando mt',
+      time : '10:00 AM',
+      date : '20/02/2021',
+      day : 'February 20th',
+      checked : false,
+      color : '#00ff00',
+      project : 'Other',
+      Note : 'forget everything',
+    }
+]
   const [showModal, setShowModal] = useState(false)
-  
+  // console.log(project)
   return (
     
     <div id="projects">
@@ -24,7 +49,12 @@ export function Project({ project }: any) {
           <Arrow />
         </div>
       </div>
-      <Todo />
+      <div className="box-todo">
+           {todos.map(todo => 
+           project.name == todo.project ?
+                   ( <Todo todo={todo} key={todo.id} />    ) : ''
+                )}
+        </div>
       <Modal showModal={showModal} setShowModal={setShowModal}>
                 <RenameProject project={project} setShowModal={setShowModal}/>
             </Modal>

@@ -1,18 +1,24 @@
-import React from "react";
+import React, {useState} from 'react';
 
 import "../styles/todo.scss";
 import DeleteIcon from '@mui/icons-material/Delete';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
-// import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
+
+import {Todos} from "./Todos";
 
 
 
 
-export function todo(){
+
+export function Todo({todo}: any){
+ 
+  console.log(Todos)
+  // const [hover, setHover] = useState(false)
+
   return (
     <div className="box-todo">
       <div className="header">
-      <h3>Dinner with Anna</h3>
+      <h3>{todo.text}</h3>
       <div className="delete">
       <DeleteIcon color="action"/>
       <CheckBoxOutlineBlankIcon color="action"/>
@@ -20,12 +26,13 @@ export function todo(){
       </div>
       <div className="line"></div>
       <ul>
-        <li>Time <a> 08:00pm</a></li>
-        <li>Day  <a>February 16th</a></li>
-        <li>Notes <a>don't forget to give her a bouquet of flowers</a></li>
+        <li>Time <a> {todo.time}</a></li>
+        <li>Day  <a>{todo.day}</a></li>
+        <li>Notes <a>{todo.Note}</a></li>
       </ul>
     </div>
   )
+  
 }
 
-export default todo;
+export default Todo;

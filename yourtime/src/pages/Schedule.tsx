@@ -23,9 +23,7 @@ export function Schedule() {
           <Todo></Todo>
           <Todo></Todo>
           <Todo></Todo>
-          <Todo></Todo>
-          <Todo></Todo>
-          <Todo></Todo>
+         
         </main>
         <AddButton></AddButton>
       </div>
