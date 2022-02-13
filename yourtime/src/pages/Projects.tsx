@@ -6,7 +6,7 @@ import '../styles/todo.scss'
 import AddButton from '../components/AddButton';
 
 import Project from '../components/Project'
-import Todo from '../components/Todo';
+import {Todo} from '../components/Todo';
 
 export function Projects() {
   // const [showMenu, setShowMenu] = useState(true)

@@ -5,7 +5,7 @@ import '../styles/todo.scss'
 
 import EditIcon from '@mui/icons-material/Edit'
 import Arrow from '@mui/icons-material/KeyboardArrowDownOutlined'
-import Todo from './Todo'
+import {Todo} from './Todo'
 import Modal from './Modal'
 import RenameProject from './RenameProject'
 // import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
@@ -49,12 +49,12 @@ export function Project({ project }: any) {
           <Arrow />
         </div>
       </div>
-      <div className="box-todo">
+      
            {todos.map(todo => 
            project.name == todo.project ?
                    ( <Todo todo={todo} key={todo.id} />    ) : ''
                 )}
-        </div>
+        
       <Modal showModal={showModal} setShowModal={setShowModal}>
                 <RenameProject project={project} setShowModal={setShowModal}/>
             </Modal>

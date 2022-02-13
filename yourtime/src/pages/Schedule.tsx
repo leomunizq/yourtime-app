@@ -1,4 +1,4 @@
-import Todo from '../components/Todo';
+import {Todo} from '../components/Todo';
 import '../styles/schedule.scss';
 // import menu from '../assets/images/menu.svg'
 import AddButton from '../components/AddButton';
@@ -20,9 +20,8 @@ export function Schedule() {
         </header>
         <main>
           <h2>Schedule</h2>
-          <Todo></Todo>
-          <Todo></Todo>
-          <Todo></Todo>
+          {/* <Todo /> */}
+         
          
         </main>
         <AddButton></AddButton>
