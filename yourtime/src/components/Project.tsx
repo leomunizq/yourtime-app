@@ -10,7 +10,7 @@ import Modal from './Modal'
 import RenameProject from './RenameProject'
 // import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
 
-export function Project({ project }: any) {
+export function Project({ project, todo }: any) {
   const todos = [
     {
         id : 'd54sd4',

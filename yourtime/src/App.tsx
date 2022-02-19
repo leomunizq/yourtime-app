@@ -10,6 +10,7 @@ import { NewSchedule } from './pages/NewSchedule';
 import { Projects } from './pages/Projects';
 import { Register } from './pages/Register';
 import { Schedule } from './pages/Schedule';
+import Teste from './pages/Teste';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
     <Route path="/login" element={<Login />}  />
     <Route path="/register" element={<Register />}  />
     <Route path="/schedule" element={<Schedule />}  />
+    <Route path="/teste" element={<Teste />}  />
         <Route path="/newschedule" element={<NewSchedule />}  />
         <Route path="/projects" element={<Projects />}  />
 

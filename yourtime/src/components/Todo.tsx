@@ -16,11 +16,12 @@ export function Todo({todo}: any){
   console.log(Todos)
   const [hover, setHover] = useState(false)
 
+
+
   return (
-    <div className="box-todo" onMouseEnter={() => setHover(true)}
-    onMouseLeave={() => setHover(false)}>
+    <div className="box-todo" style={{opacity : todo.checked ? '0.5' : ''}}>
       <div className="header">
-      <h3 style={{color : todo.checked ? '#bebebe' : '#fff'}}>{todo.text}</h3>
+      <h3 style={{color : todo.checked ? '#bdbdbd' : '#fff'}}>{todo.text}</h3>
       <div className="delete">
       
       <DeleteIcon color="action"/>
@@ -30,7 +31,7 @@ export function Todo({todo}: any){
                     {
                         todo.checked ?
                         <span className="checked">
-                            <CheckBoxOutlinedIcon color="disabled" />
+                            <CheckBoxOutlinedIcon color="action" />
                         </span>
                         :
                         <span className="unchecked">
@@ -41,11 +42,11 @@ export function Todo({todo}: any){
                        
                         </div>
       </div>
-      <div className="line"></div>
-      <ul>
-        <li>Time <a> {todo.time}</a></li>
-        <li>Day  <a>{todo.day}</a></li>
-        <li>Notes <a>{todo.Note}</a></li>
+      <div className="line" ></div>
+      <ul >
+        <li style={{color : todo.checked ? '#bdbdbd' : '#fff'}}>Time <a> {todo.time}</a></li>
+        <li style={{color : todo.checked ? '#bdbdbd' : '#fff'}}>Day  <a>{todo.day}</a></li>
+        <li style={{color : todo.checked ? '#bdbdbd' : '#fff'}}>Notes <a>{todo.Note}</a></li>
       </ul>
     </div>
     
