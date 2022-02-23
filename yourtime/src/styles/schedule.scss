@@ -20,11 +20,12 @@
         padding: 0 30px;
         header {
             margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
             h1 {
                 font-family: Roboto;
                 font-weight: 600;
                 font-size: 36px;
-                line-height: 56px;
                 text-align: left;
                 letter-spacing: -0.3px;
                 color: #FFFFFF;
@@ -61,10 +62,10 @@
         color: #fff;
         margin-bottom: 20px;
     }
-    main .box-todo {
+    .box-todo {
         margin-bottom: 14px;
     }
-    main .box-todo:hover {
+    .box-todo:hover {
         background-color: #59399c;
     }
     #projects {

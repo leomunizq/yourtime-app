@@ -7,19 +7,10 @@ import { buttonUnstyledClasses } from '@mui/base/ButtonUnstyled';
 import TabUnstyled, { tabUnstyledClasses } from '@mui/base/TabUnstyled';
 import { Todo } from '../components/Todo';
 import Project from '../components/Project';
+import AddButton from '../components/AddButton';
+import LongMenu from '../components/Menu'
 
-const blue = {
-  50: '#F0F7FF',
-  100: '#C2E0FF',
-  200: '#80BFFF',
-  300: '#66B2FF',
-  400: '#3399FF',
-  500: '#007FFF',
-  600: '#0072E5',
-  700: '#0059B2',
-  800: '#004C99',
-  900: '#003A75',
-};
+
 
 const Tab = styled(TabUnstyled)`
   font-family: IBM Plex Sans, sans-serif;
@@ -85,6 +76,7 @@ export default function Teste(todo:any) {
     { id: 3, name: 'Other'}
   ]
   
+  
   const todos = [
     {
         id : 'd54sd4',
@@ -117,18 +109,24 @@ export default function Teste(todo:any) {
       <div className="container">
         <header>
           <h1> .yourtime</h1>
+         <div className="menu">
+          <LongMenu />
+         </div>
 
-          
+         </header>
+         
            
           <TabsUnstyled defaultValue={0}>
       <TabsList>
-        <Tab>Schedule</Tab>
+        <Tab>Schedules</Tab>
         <Tab>Projects</Tab>
         
       </TabsList>
       <TabPanel value={0}>
+      
 {/* //conteudo 1// */}
 <br/>
+
  {todos.map(todo => 
                    ( <Todo todo={todo} key={todo.id} />    )
                 )}
@@ -137,6 +135,7 @@ export default function Teste(todo:any) {
       <TabPanel value={1}>
 {/* //Conteudo 2// */}
 <br/>
+
 {projects.map(project => (
                 <Project
                   project={project}
@@ -148,14 +147,10 @@ export default function Teste(todo:any) {
       </TabPanel>
       
     </TabsUnstyled>
- 
-
-
-
-          
-        </header>
         </div>
+        <AddButton />
     </div>
+   
 
   )
 }
