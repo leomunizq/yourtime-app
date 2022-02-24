@@ -12,6 +12,7 @@ import arrowBack from '../assets/images/arrow.svg'
 import checkOk from '../assets/images/check-ok.svg'
 import create from '../assets/images/create.svg'
 import { Bell } from 'react-bootstrap-icons'
+import ButtonFoProject from '../components/ButtonForProject'
 
 
 
@@ -25,10 +26,10 @@ export function NewSchedule() {
 
 
   const [isActive, setActive] = useState(false);
+
   const toggleClass = () => {
     setActive(!isActive);
   };
-
   
 
   const projects = [
@@ -37,9 +38,7 @@ export function NewSchedule() {
     { id: 3, name: 'Other'}
   ]
   
-  const printButtonLabel = (event:any) => {
-    console.log(event.target.name);
-  }
+  
   return (
     <div id="newschedule-page">
       <header></header>
@@ -110,23 +109,8 @@ export function NewSchedule() {
                 <p>Choose a project</p>
               </div>
               <div className="projects">
+             <ButtonFoProject/>
              
-              {
-                            projects.length > 0 ?
-                            projects.map( (project: { id: number; name: string }, i:any) => 
-                                <div
-                                className={`project ${isActive ? "active" : ""}`}
-                                    onClick={() => toggleClass()} 
-                                    key={project.id}
-                                >
-                                    {project.name}
-                                </div>    
-                            )
-                            :
-                            <div style={{color:'#ff0000'}}>
-                                Please add a project before proceeding
-                            </div>
-                        }
 
               </div>
             </div>
