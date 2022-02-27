@@ -85,7 +85,6 @@ export default function Teste(todo:any) {
         date : '16/02/2021',
         day : 'February 16th',
         checked : true,
-        color : '#00ff00',
         project : 'React',
         Note : 'dont forget to give her a bouquet of flowers',
     },
@@ -96,7 +95,6 @@ export default function Teste(todo:any) {
       date : '20/02/2021',
       day : 'February 20th',
       checked : false,
-      color : '#00ff00',
       project : 'Other',
       Note : 'forget everything',
     }

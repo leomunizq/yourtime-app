@@ -17,7 +17,7 @@ export function Register(){
           <input placeholder="Confirm Password" type="password" name=""  /><br/>
           <p>By clicking the Register button, you agree to the public offer</p>
         
-        <Button>Login</Button>
+        <Button>Register</Button>
         </form>
         <div className="loginwith" >
           <p id="login">sign in with</p>

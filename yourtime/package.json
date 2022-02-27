@@ -22,7 +22,7 @@
     "@types/react-router-dom": "^5.3.3",
     "custom-react-accordion": "^1.0.4",
     "date-fns": "^2.28.0",
-    "firebase": "^9.6.6",
+    "firebase": "^9.6.7",
     "react": "^17.0.2",
     "react-bootstrap-icons": "^1.7.2",
     "react-dom": "^17.0.2",

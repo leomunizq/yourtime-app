@@ -4,11 +4,7 @@ import '../styles/newschedule.scss'
 
 export function ButtonFoProject(){
 
-  // const projects = [
-  //   { id: 1, name: 'React'},
-  //   { id: 2, name: 'Work'},
-  //   { id: 3, name: 'Other'}
-  // ]
+  
 
   const [appState, changeState] = useState({
 activeObject: null,
