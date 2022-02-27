@@ -31,12 +31,6 @@ export function NewSchedule() {
     setActive(!isActive);
   };
   
-
-  const projects = [
-    { id: 1, name: 'React'},
-    { id: 2, name: 'Work'},
-    { id: 3, name: 'Other'}
-  ]
   
   
   return (

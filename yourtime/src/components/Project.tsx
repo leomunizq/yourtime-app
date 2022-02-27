@@ -15,31 +15,7 @@ import RenameProject from './RenameProject'
 
 export function Project({ project, todo }: any) {
   const { todos, projects } = useContext(TodoContext)
-  
-//   const todos = [
-//     {
-//         id : 'd54sd4',
-//         text : 'Dinner with Anna',
-//         time : '10:00 AM',
-//         date : '16/02/2021',
-//         day : 'February 16th',
-//         checked : true,
-//         color : '#00ff00',
-//         project : 'React',
-//         Note : 'dont forget to give her a bouquet of flowers',
-//     },
-//     {
-//       id : 'd54ff4',
-//       text : 'Testando mt',
-//       time : '10:00 AM',
-//       date : '20/02/2021',
-//       day : 'February 20th',
-//       checked : false,
-//       color : '#00ff00',
-//       project : 'Other',
-//       Note : 'forget everything',
-//     }
-// ]
+
   const [showModal, setShowModal] = useState(false)
   // console.log(project)
   return (

@@ -1,17 +1,17 @@
 import React, { useState } from "react";
+import { useContext } from 'react';
+import { TodoContext } from '../context'
+
 import '../styles/newschedule.scss'
 
 
 export function ButtonFoProject(){
-
+  const { projects } = useContext(TodoContext)
   
 
   const [appState, changeState] = useState({
 activeObject: null,
-projects: [
-  { id: 1, name: 'React'},
-  { id: 2, name: 'Work'},
-  { id: 3, name: 'Other'}]
+projects,
   })
 
 function toggleActive(index){
