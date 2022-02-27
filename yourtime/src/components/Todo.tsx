@@ -46,7 +46,7 @@ export function Todo({todo}: any){
       <ul >
         <li style={{color : todo.checked ? '#bdbdbd' : '#fff'}}>Time <a> {todo.time}</a></li>
         <li style={{color : todo.checked ? '#bdbdbd' : '#fff'}}>Day  <a>{todo.day}</a></li>
-        <li style={{color : todo.checked ? '#bdbdbd' : '#fff'}}>Notes <a>{todo.Note}</a></li>
+        <li style={{color : todo.checked ? '#bdbdbd' : '#fff'}}>Notes <a>{todo.note}</a></li>
       </ul>
     </div>
     

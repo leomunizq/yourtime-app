@@ -1,9 +1,6 @@
 import {useState, useEffect} from 'react'
 import firebase from '../services/firebase'
-import {
-  onSnapshot,
-  doc,
-} from 'firebase/firestore';
+
 import 'firebase/compat/firestore'
 
 export function useTodos(){
