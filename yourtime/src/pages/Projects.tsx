@@ -1,22 +1,27 @@
-import React, { useState } from 'react'
-// import Todo from '../components/Todo';
+import React, { useContext, useState } from 'react'
+
 import '../styles/schedule.scss'
 import '../styles/todo.scss'
 
 import AddButton from '../components/AddButton';
 
 import Project from '../components/Project'
-import {Todo} from '../components/Todo';
+
+import { TodoContext } from '../context/index'
 
 export function Projects() {
-  // const [showMenu, setShowMenu] = useState(true)
-  // const [edit, setEdit] = useState(false)
+ 
 
-  const projects = [
-    { id: 1, name: 'React'},
-    { id: 2, name: 'Work'},
-    { id: 3, name: 'Other'}
-  ]
+
+  //Context
+  const {projects} = useContext(TodoContext)
+
+
+  // const projects = [
+  //   { id: 1, name: 'React'},
+  //   { id: 2, name: 'Work'},
+  //   { id: 3, name: 'Other'}
+  // ]
   
  
 
@@ -35,7 +40,7 @@ export function Projects() {
         <main>
           <div id="projects">
              
-              {projects.map(project => (
+              {projects.map((project: { id: any; }) => (
                 <Project
                   project={project}
                   key={project.id}

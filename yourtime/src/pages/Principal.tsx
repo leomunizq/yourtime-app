@@ -1,4 +1,7 @@
 import * as React from 'react';
+
+import { TodoContext } from '../context'
+
 import { styled } from '@mui/system';
 import TabsUnstyled from '@mui/base/TabsUnstyled';
 import TabsListUnstyled from '@mui/base/TabsListUnstyled';
@@ -9,9 +12,10 @@ import { Todo } from '../components/Todo';
 import Project from '../components/Project';
 import AddButton from '../components/AddButton';
 import LongMenu from '../components/Menu'
+import { useContext } from 'react';
 
 
-
+// ENVIAR TODO ESSE STYLE PARA CSS
 const Tab = styled(TabUnstyled)`
   font-family: IBM Plex Sans, sans-serif;
   color: white;
@@ -68,37 +72,40 @@ const TabsList = styled(TabsListUnstyled)`
   align-content: space-between;
 `;
 
-export default function Teste(todo:any) {
+export default function Principal(todo:any) {
   
-  const projects = [
-    { id: 1, name: 'React'},
-    { id: 2, name: 'Work'},
-    { id: 3, name: 'Other'}
-  ]
+  const { todos, projects } = useContext(TodoContext)
+
+
+  // const projects = [
+  //   { id: 1, name: 'React'},
+  //   { id: 2, name: 'Work'},
+  //   { id: 3, name: 'Other'}
+  // ]
   
   
-  const todos = [
-    {
-        id : 'd54sd4',
-        text : 'Dinner with Anna',
-        time : '10:00 AM',
-        date : '16/02/2021',
-        day : 'February 16th',
-        checked : true,
-        project : 'React',
-        Note : 'dont forget to give her a bouquet of flowers',
-    },
-    {
-      id : 'd54ff4',
-      text : 'Testando mt',
-      time : '10:00 AM',
-      date : '20/02/2021',
-      day : 'February 20th',
-      checked : false,
-      project : 'Other',
-      Note : 'forget everything',
-    }
-]
+//   const todos = [
+//     {
+//         id : 'd54sd4',
+//         text : 'Dinner with Anna',
+//         time : '10:00 AM',
+//         date : '16/02/2021',
+//         day : 'February 16th',
+//         checked : true,
+//         project : 'React',
+//         Note : 'dont forget to give her a bouquet of flowers',
+//     },
+//     {
+//       id : 'd54ff4',
+//       text : 'Testando mt',
+//       time : '10:00 AM',
+//       date : '20/02/2021',
+//       day : 'February 20th',
+//       checked : false,
+//       project : 'Other',
+//       Note : 'forget everything',
+//     }
+// ]
  
 
   return (
@@ -122,19 +129,19 @@ export default function Teste(todo:any) {
       </TabsList>
       <TabPanel value={0}>
       
-{/* //conteudo 1// */}
+{/* //conteudo 1 da tab SCHEDULE // */}
 <br/>
 
- {todos.map(todo => 
+ {todos.map((todo: { id: any; }) => 
                    ( <Todo todo={todo} key={todo.id} />    )
                 )}
 
       </TabPanel>
       <TabPanel value={1}>
-{/* //Conteudo 2// */}
+{/* //Conteudo 2 da tab PROJECTS // */}
 <br/>
 
-{projects.map(project => (
+{projects.map((project: { id: any; }) => (
                 <Project
                   project={project}
                   key={project.id}

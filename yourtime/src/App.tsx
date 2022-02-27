@@ -11,12 +11,14 @@ import { Projects } from './pages/Projects';
 import { Register } from './pages/Register';
 import { Schedule } from './pages/Schedule';
 import Principal from './pages/Principal';
+import {TodoContextProvider} from './context/index'
 
 
 function App() {
   return (
     <BrowserRouter>
     {/* <AuthContextProvider> */}
+    <TodoContextProvider>
     <Routes>
     <Route path="/" element={<Home />} /> 
     <Route path="/login" element={<Login />}  />
@@ -25,10 +27,8 @@ function App() {
     <Route path="/principal" element={<Principal />}  />
         <Route path="/newschedule" element={<NewSchedule />}  />
         <Route path="/projects" element={<Projects />}  />
-
-    {/* <Route path="/rooms/:id" element={<Room />}  /> */}
-    {/* <Route path="/admin/rooms/:id" element={<AdminRoom />} /> */}
     </Routes>
+    </TodoContextProvider>
     {/* </AuthContextProvider> */}
     </BrowserRouter>
   );

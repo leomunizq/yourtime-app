@@ -5,7 +5,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
 
-import {Todos} from "./Todos";
+
 
 
 
@@ -13,7 +13,7 @@ import {Todos} from "./Todos";
 
 export function Todo({todo}: any){
  
-  console.log(Todos)
+  
   const [hover, setHover] = useState(false)
 
 

@@ -1,15 +1,19 @@
 import {useState, useEffect} from 'react'
-import firebase from 'firebase/compat/app';
+import firebase from '../services/firebase'
+import {
+  onSnapshot,
+  doc,
+} from 'firebase/firestore';
+import 'firebase/compat/firestore'
 
 export function useTodos(){
   const [todos, setTodos] = useState([])
 
-  
-  useEffect(() =>{
+  useEffect(() => {
     let unsubscribe = firebase
     .firestore()
     .collection('todos')
-    .onSnapshot ( snapshot => {
+    .onSnapshot( snapshot => {
         const data = snapshot.docs.map(doc => { 
           return{
             id : doc.id,
@@ -37,7 +41,7 @@ export function useProjects(todos){
 
         return {
           id: doc.id,
-          name:project
+          name: project
         }
       })
       setProjects(data)
