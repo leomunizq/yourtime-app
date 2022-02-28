@@ -2,12 +2,42 @@ import React, {useState} from 'react'
 import Modal from './Modal'
 import ProjectForm from './ProjectForm'
 
+import firebase from '../services/firebase'
+import 'firebase/compat/firestore'
+
 import AddIcon from '@mui/icons-material/Add';
 
 function AddNewProject(){
+
+    //state
     const [showModal, setShowModal] = useState(false)
     const [projectName, setProjectName] = useState('')
+
+    //enviar-send
     function handleSubmit(e:any){
+        e.preventDefault()
+
+        if (projectName) {
+            const projectsRef = firebase.firestore().collection('projects')
+
+            projectsRef
+            .where('name', '==', projectName)
+            .get()
+            .then(querySnapshot => {
+                if(querySnapshot.empty){
+                    projectsRef
+                        .add(
+                            {
+                            name : projectName
+                            }
+                            )
+                     }else{
+                         alert('Project already exists!')
+                     }
+            })
+            setShowModal(false)
+            setProjectName('')
+        }
 
     }
 
