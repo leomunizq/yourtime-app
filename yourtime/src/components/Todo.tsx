@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
 
+import firebase from '../services/firebase'
+import 'firebase/compat/firestore'
+
 import "../styles/todo.scss";
 import DeleteIcon from '@mui/icons-material/Delete';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
-
 
 
 
@@ -16,6 +18,13 @@ export function Todo({todo}: any){
   
   const [hover, setHover] = useState(false)
 
+  const deleteTodo = (todo: { id: any; }) => {
+    firebase
+        .firestore()
+        .collection('todos')
+        .doc(todo.id)
+        .delete()
+}
 
 
   return (
@@ -24,7 +33,7 @@ export function Todo({todo}: any){
       <h3 style={{color : todo.checked ? '#bdbdbd' : '#fff'}}>{todo.text}</h3>
       <div className="delete">
       
-      <DeleteIcon color="action"/>
+      <DeleteIcon color="action"  onClick={ () => deleteTodo(todo)}/>
 
       
                 

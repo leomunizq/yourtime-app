@@ -4,7 +4,7 @@ import { TodoContext } from '../context'
 
 import '../styles/todo.scss'
 
-
+import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit'
 import Arrow from '@mui/icons-material/KeyboardArrowDownOutlined'
 import {Todo} from './Todo'
@@ -26,6 +26,7 @@ export function Project({ project, todo }: any) {
      
         <div className="icons">
           
+        <DeleteIcon color="action"/>
           <EditIcon   onClick={ () => setShowModal(true)} />
           <Arrow />
         </div>

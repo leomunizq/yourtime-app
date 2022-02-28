@@ -84,7 +84,7 @@ function toggleActiveStyles(index: string | number){
   
   return (
     <div id="newschedule-page">
-      <header></header>
+      
       <div className="container">
         <header>
           <div className="arrow">
