@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+import { useContext } from 'react';
+import { TodoContext } from '../context'
+
 import {
   DatePicker,
   TimePicker,
@@ -6,13 +9,18 @@ import {
 } from '@material-ui/pickers'
 import DateFnsUtils from '@date-io/date-fns'
 
+import firebase from '../services/firebase'
+import 'firebase/compat/firestore'
+import moment from 'moment'
+
 import '../styles/newschedule.scss'
 
 import arrowBack from '../assets/images/arrow.svg'
 import checkOk from '../assets/images/check-ok.svg'
 import create from '../assets/images/create.svg'
 import { Bell } from 'react-bootstrap-icons'
-import ButtonFoProject from '../components/ButtonForProject'
+import ButtonForSelectProject from '../components/ButtonForProject'
+
 
 
 
@@ -24,14 +32,55 @@ export function NewSchedule() {
   const [note, setNote] = useState('')
   const [place, setPlace] = useState('')
 
-
-  const [isActive, setActive] = useState(false);
-
-  const toggleClass = () => {
-    setActive(!isActive);
-  };
+  const { projects } = useContext(TodoContext)
   
+
+  const [appState, changeState] = useState({
+activeObject: Object,
+projects,
+  })
+
+function toggleActive(index: string | number){
+  changeState({...appState, activeObject: appState.projects[index]})
+}
+function toggleActiveStyles(index: string | number){
+  if (appState.projects[index] === appState.activeObject){
+    return "project active";
+  } else {
+    return "project";
+  }
+}
+
+  // const [isActive, setActive] = useState(false);
+
+  // const toggleClass = () => {
+  //   setActive(!isActive);
+  // };
   
+  function handleSubmit(e: any) {
+    e.preventDefault()
+    if (text) {
+      firebase
+        .firestore()
+        .collection('todos')
+        .add(
+          {
+            checked : false,
+            date : moment(day).format('MM/DD/YYYY'),
+            day : moment(day).format('MMM Do YY'),
+            note : note,
+            project: appState.activeObject.name,
+            text: text,
+            time : moment(time).format('HH:mm A'),
+            place: place
+          }
+        )
+        setText('')
+        setDay(new Date())
+        setTime(new Date())
+    }
+  }
+
   
   return (
     <div id="newschedule-page">
@@ -46,13 +95,13 @@ export function NewSchedule() {
             />
           </div>
           <div className="check">
-            <img src={checkOk} alt="To-Do ok" />
-            <img src={create} alt="Create To-Do" />
+            <img src={checkOk} alt="To-Do ok"/>
+            <img src={create} alt="Create To-Do" onClick={handleSubmit} />
           </div>
         </header>
         <h3>Your To-Do</h3>
         <MuiPickersUtilsProvider utils={DateFnsUtils}>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="title-todo">
               <input
                 type="text"
@@ -103,7 +152,27 @@ export function NewSchedule() {
                 <p>Choose a project</p>
               </div>
               <div className="projects">
-             <ButtonFoProject/>
+
+                {/* //buttons for select project// */}
+             {/* <ButtonForSelectProject/> */}
+
+             {
+      appState.projects.length > 0 ?
+      appState.projects.map( (project:any, index:any) => 
+          <div
+          className={toggleActiveStyles(index)}
+              onClick={() => {toggleActive(index);}} 
+              key={index}
+          >
+              {project.name}
+          </div>    
+      )
+      :
+      <div style={{color:'#ff0000'}}>
+          Please add a project before proceeding
+      </div>
+  }
+
              
 
               </div>

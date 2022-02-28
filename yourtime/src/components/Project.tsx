@@ -17,7 +17,7 @@ export function Project({ project, todo }: any) {
   const { todos, projects } = useContext(TodoContext)
 
   const [showModal, setShowModal] = useState(false)
-  // console.log(project)
+
   return (
     
     <div id="projects">

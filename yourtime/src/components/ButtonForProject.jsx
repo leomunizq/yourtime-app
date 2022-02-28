@@ -5,7 +5,7 @@ import { TodoContext } from '../context'
 import '../styles/newschedule.scss'
 
 
-export function ButtonFoProject(){
+export function ButtonForSelectProject(){
   const { projects } = useContext(TodoContext)
   
 
@@ -49,4 +49,4 @@ function toggleActiveStyles(index){
   )
 }
 
-export default ButtonFoProject;
+export default ButtonForSelectProject;
