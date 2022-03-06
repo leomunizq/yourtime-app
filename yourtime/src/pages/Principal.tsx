@@ -15,6 +15,9 @@ import LongMenu from '../components/Menu'
 import { useContext } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { Navigate } from 'react-router-dom'
+import { auth } from '../services/firebase'
+import illustrationEmpty from '../assets/images/Saly-38.svg'
+import '../hooks/index'
 
 // ENVIAR TODO ESSE STYLE PARA CSS
 const Tab = styled(TabUnstyled)`
@@ -75,6 +78,9 @@ const TabsList = styled(TabsListUnstyled)`
 export default function Principal(todo: any) {
   const { todos, projects } = useContext(TodoContext)
   const { currentUser } = useAuth()
+
+  console.log(auth.currentUser?.uid)
+
   //privated page
   if (currentUser === null) {
     return <Navigate to="/" />
@@ -85,9 +91,8 @@ export default function Principal(todo: any) {
       <div className="container">
         <header>
           <h1>
-            {' '}
             .yourtime
-            {currentUser && <pre> {JSON.stringify(currentUser, null, 2)}</pre>}
+            {/* {currentUser && <pre> {JSON.stringify(currentUser, null, 2)}</pre>} */}
           </h1>
           <div className="menu">
             <LongMenu />

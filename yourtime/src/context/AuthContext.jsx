@@ -6,7 +6,8 @@ import {
   onAuthStateChanged,
   GoogleAuthProvider,
   signInWithPopup,
-  signOut
+  signOut,
+  uid
 } from 'firebase/auth'
 
 const AuthContext = createContext({

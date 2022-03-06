@@ -1,51 +1,52 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import firebase from '../services/firebase'
+import { auth } from '../services/firebase'
+import { useAuth } from '../context/AuthContext'
 
 import 'firebase/compat/firestore'
 
-export function useTodos(){
+export function useTodos() {
+  const { currentUser } = useAuth()
   const [todos, setTodos] = useState([])
 
   useEffect(() => {
     let unsubscribe = firebase
-    .firestore()
-    .collection('todos')
-    .onSnapshot( snapshot => {
-        const data = snapshot.docs.map(doc => { 
-          return{
-            id : doc.id,
+      .firestore()
+      .collection(`todos ${auth.currentUser.uid}`)
+      .onSnapshot(snapshot => {
+        const data = snapshot.docs.map(doc => {
+          return {
+            id: doc.id,
             ...doc.data()
           }
         })
         setTodos(data)
-    })
-      return () => unsubscribe()
+      })
+    return () => unsubscribe()
   }, [])
 
-    return todos
+  return todos
 }
 
-export function useProjects(todos){
+export function useProjects(todos) {
   const [projects, setProjects] = useState([])
 
-  useEffect(() =>{
+  useEffect(() => {
     let unsubscribe = firebase
-    .firestore()
-    .collection('projects')
-    .onSnapshot( snapshot => {
-      const data = snapshot.docs.map(doc =>{
-        const project = doc.data().name
+      .firestore()
+      .collection(`projects ${auth?.currentUser.uid}`)
+      .onSnapshot(snapshot => {
+        const data = snapshot.docs.map(doc => {
+          const project = doc.data().name
 
-        return {
-          id: doc.id,
-          name: project
-        }
+          return {
+            id: doc.id,
+            name: project
+          }
+        })
+        setProjects(data)
       })
-      setProjects(data)
-    })
     return () => unsubscribe()
-
-
   }, [])
   return projects
 }

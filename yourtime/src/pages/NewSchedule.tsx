@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useContext } from 'react'
 import { TodoContext } from '../context'
 import { Navigate, useNavigate } from 'react-router-dom'
+import { auth } from '../services/firebase'
 
 import {
   DatePicker,
@@ -23,6 +24,7 @@ import { useAuth } from '../context/AuthContext'
 
 export function NewSchedule() {
   const { currentUser } = useAuth()
+  console.log(auth.currentUser?.uid)
   const navigate = useNavigate()
 
   const [text, setText] = useState('')
@@ -55,7 +57,7 @@ export function NewSchedule() {
     if (text) {
       firebase
         .firestore()
-        .collection('todos')
+        .collection(`todos ${auth.currentUser?.uid}`)
         .add({
           checked: false,
           date: moment(day).format('MM/DD/YYYY'),
@@ -70,7 +72,7 @@ export function NewSchedule() {
       navigate('/principal')
     }
   }
-
+  //privated page
   if (currentUser === null) {
     return <Navigate to="/login" replace />
   }
