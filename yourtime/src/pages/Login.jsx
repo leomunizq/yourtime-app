@@ -9,18 +9,16 @@ import '../styles/login.scss'
 import appleImg from '../assets/images/apple.svg'
 import facebookImg from '../assets/images/facebook.svg'
 import googleImg from '../assets/images/google.svg'
-// import passwordImg from '../assets/images/password.svg';
-// import userImg from '../assets/images/user.svg'
 
 export default function Login() {
   const navigate = useNavigate()
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  // const [isSubmitting, setIsSubmitting] = useState(false)
   const toast = useToast()
 
-  const { login, currentUser, onAuthStateChanged } = useAuth()
+  const { login, currentUser, onAuthStateChanged, signInWithGoogle } = useAuth()
 
   return (
     <div id="login-page">
@@ -51,11 +49,11 @@ export default function Login() {
                   })
                   return
                 }
-                setIsSubmitting(true)
+
                 login(email, password)
                   .then(res => {
                     navigate('/principal')
-                    console.log(onAuthStateChanged)
+                    console.log(currentUser)
                   })
                   .catch(error => {
                     console.log(error.message)
@@ -67,7 +65,6 @@ export default function Login() {
                       isClosable: true
                     })
                   })
-                  .finally(() => setIsSubmitting(false))
               }}
             >
               <input
@@ -99,7 +96,16 @@ export default function Login() {
             <p id="login">sign in with</p>
             <img src={appleImg} className="grow" alt="" />
             <img src={facebookImg} className="grow" alt="" />
-            <img src={googleImg} className="grow" alt="" />
+            <img
+              onClick={() => {
+                signInWithGoogle()
+                  .then(user => navigate('/principal'))
+                  .catch(error => console.log(error))
+              }}
+              src={googleImg}
+              className="grow"
+              alt=""
+            />
           </div>
         </div>
       </main>

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useToast } from '@chakra-ui/toast'
+import { useNavigate } from 'react-router-dom'
 import '../styles/register.scss'
 
 import { Button } from '../components/Button'
@@ -13,6 +14,7 @@ export function Register() {
   const [password, setPassword] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const toast = useToast()
+  const navigate = useNavigate()
 
   const { register } = useAuth()
 
@@ -38,9 +40,11 @@ export function Register() {
               })
               return
             }
-            setIsSubmitting(true)
+
             register(email, password)
-              .then(res => {})
+              .then(res => {
+                navigate('/principal')
+              })
               .catch(error => {
                 console.log(error.message)
                 toast({
@@ -50,7 +54,6 @@ export function Register() {
                   isClosable: true
                 })
               })
-              .finally(() => setIsSubmitting(false))
           }}
         >
           <input
@@ -73,7 +76,7 @@ export function Register() {
             required
           />
           <br />
-          {/* <input placeholder="Confirm Password" type="password" name=""  /><br/> */}
+
           <p>By clicking the Register button, you agree to the public offer</p>
 
           <Button type="submit">Register</Button>

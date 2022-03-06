@@ -14,6 +14,7 @@ import AddButton from '../components/AddButton'
 import LongMenu from '../components/Menu'
 import { useContext } from 'react'
 import { useAuth } from '../context/AuthContext'
+import { Navigate } from 'react-router-dom'
 
 // ENVIAR TODO ESSE STYLE PARA CSS
 const Tab = styled(TabUnstyled)`
@@ -74,6 +75,10 @@ const TabsList = styled(TabsListUnstyled)`
 export default function Principal(todo: any) {
   const { todos, projects } = useContext(TodoContext)
   const { currentUser } = useAuth()
+  //privated page
+  if (currentUser === null) {
+    return <Navigate to="/" />
+  }
 
   return (
     <div id="schedule-page">

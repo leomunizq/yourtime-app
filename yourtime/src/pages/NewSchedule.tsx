@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useContext } from 'react'
 import { TodoContext } from '../context'
-import { useNavigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 import {
   DatePicker,
@@ -19,8 +19,10 @@ import '../styles/newschedule.scss'
 import arrowBack from '../assets/images/arrow.svg'
 import create from '../assets/images/create.svg'
 import { Bell } from 'react-bootstrap-icons'
+import { useAuth } from '../context/AuthContext'
 
 export function NewSchedule() {
+  const { currentUser } = useAuth()
   const navigate = useNavigate()
 
   const [text, setText] = useState('')
@@ -69,6 +71,9 @@ export function NewSchedule() {
     }
   }
 
+  if (currentUser === null) {
+    return <Navigate to="/login" replace />
+  }
   return (
     <div id="newschedule-page">
       <div className="container">
