@@ -26,6 +26,16 @@ export function Todo({todo}: any){
         .delete()
 }
 
+const checkTodo = (todo: any) => {
+  firebase
+  .firestore()
+  .collection('todos')
+  .doc(todo.id)
+  .update({
+    checked : !todo.checked
+  })
+
+}
 
   return (
     <div className="box-todo" style={{opacity : todo.checked ? '0.5' : ''}}>
@@ -40,11 +50,11 @@ export function Todo({todo}: any){
                     {
                         todo.checked ?
                         <span className="checked">
-                            <CheckBoxOutlinedIcon color="action" />
+                            <CheckBoxOutlinedIcon color="action"  onClick={ () => checkTodo(todo)} />
                         </span>
                         :
                         <span className="unchecked">
-                            <CheckBoxOutlineBlankIcon color="action"/>
+                            <CheckBoxOutlineBlankIcon color="action"  onClick={ () => checkTodo(todo)}/>
                         </span>}
                       
                         

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import { useContext } from 'react';
+import { useContext } from 'react'
 import { TodoContext } from '../context'
+import { useNavigate } from 'react-router-dom'
 
 import {
   DatePicker,
@@ -16,15 +17,12 @@ import moment from 'moment'
 import '../styles/newschedule.scss'
 
 import arrowBack from '../assets/images/arrow.svg'
-import checkOk from '../assets/images/check-ok.svg'
 import create from '../assets/images/create.svg'
 import { Bell } from 'react-bootstrap-icons'
-import ButtonForSelectProject from '../components/ButtonForProject'
-
-
-
 
 export function NewSchedule() {
+  const navigate = useNavigate()
+
   const [text, setText] = useState('')
   const [day, setDay] = useState<Date | null>(new Date())
   const [time, setTime] = useState<Date | null>(new Date())
@@ -33,58 +31,46 @@ export function NewSchedule() {
   const [place, setPlace] = useState('')
 
   const { projects } = useContext(TodoContext)
-  
 
   const [appState, changeState] = useState({
-activeObject: Object,
-projects,
+    activeObject: Object,
+    projects
   })
 
-function toggleActive(index: string | number){
-  changeState({...appState, activeObject: appState.projects[index]})
-}
-function toggleActiveStyles(index: string | number){
-  if (appState.projects[index] === appState.activeObject){
-    return "project active";
-  } else {
-    return "project";
+  function toggleActive(index: string | number) {
+    changeState({ ...appState, activeObject: appState.projects[index] })
   }
-}
+  function toggleActiveStyles(index: string | number) {
+    if (appState.projects[index] === appState.activeObject) {
+      return 'project active'
+    } else {
+      return 'project'
+    }
+  }
 
-  // const [isActive, setActive] = useState(false);
-
-  // const toggleClass = () => {
-  //   setActive(!isActive);
-  // };
-  
   function handleSubmit(e: any) {
     e.preventDefault()
     if (text) {
       firebase
         .firestore()
         .collection('todos')
-        .add(
-          {
-            checked : false,
-            date : moment(day).format('MM/DD/YYYY'),
-            day : moment(day).format('MMM Do YY'),
-            note : note,
-            project: appState.activeObject.name,
-            text: text,
-            time : moment(time).format('HH:mm A'),
-            place: place
-          }
-        )
-        setText('')
-        setDay(new Date())
-        setTime(new Date())
+        .add({
+          checked: false,
+          date: moment(day).format('MM/DD/YYYY'),
+          day: moment(day).format('MMM Do YY'),
+          note: note,
+          project: appState.activeObject.name,
+          text: text,
+          time: moment(time).format('HH:mm A'),
+          place: place
+        })
+
+      navigate('/principal')
     }
   }
 
-  
   return (
     <div id="newschedule-page">
-      
       <div className="container">
         <header>
           <div className="arrow">
@@ -95,7 +81,6 @@ function toggleActiveStyles(index: string | number){
             />
           </div>
           <div className="check">
-            <img src={checkOk} alt="To-Do ok"/>
             <img src={create} alt="Create To-Do" onClick={handleSubmit} />
           </div>
         </header>
@@ -127,9 +112,6 @@ function toggleActiveStyles(index: string | number){
               <p>Remind Me!</p>
               <i className="bi bi-toggle-on"></i>
               <Bell />
-              
-
-
             </div>
             <div className="notes-todo">
               <input
@@ -152,29 +134,23 @@ function toggleActiveStyles(index: string | number){
                 <p>Choose a project</p>
               </div>
               <div className="projects">
-
-                {/* //buttons for select project// */}
-             {/* <ButtonForSelectProject/> */}
-
-             {
-      appState.projects.length > 0 ?
-      appState.projects.map( (project:any, index:any) => 
-          <div
-          className={toggleActiveStyles(index)}
-              onClick={() => {toggleActive(index);}} 
-              key={index}
-          >
-              {project.name}
-          </div>    
-      )
-      :
-      <div style={{color:'#ff0000'}}>
-          Please add a project before proceeding
-      </div>
-  }
-
-             
-
+                {appState.projects.length > 0 ? (
+                  appState.projects.map((project: any, index: any) => (
+                    <div
+                      className={toggleActiveStyles(index)}
+                      onClick={() => {
+                        toggleActive(index)
+                      }}
+                      key={index}
+                    >
+                      {project.name}
+                    </div>
+                  ))
+                ) : (
+                  <div style={{ color: '#ff0000' }}>
+                    Please add a project before proceeding
+                  </div>
+                )}
               </div>
             </div>
           </form>

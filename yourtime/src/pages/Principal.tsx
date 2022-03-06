@@ -1,19 +1,19 @@
-import * as React from 'react';
+import * as React from 'react'
 
 import { TodoContext } from '../context'
 
-import { styled } from '@mui/system';
-import TabsUnstyled from '@mui/base/TabsUnstyled';
-import TabsListUnstyled from '@mui/base/TabsListUnstyled';
-import TabPanelUnstyled from '@mui/base/TabPanelUnstyled';
-import { buttonUnstyledClasses } from '@mui/base/ButtonUnstyled';
-import TabUnstyled, { tabUnstyledClasses } from '@mui/base/TabUnstyled';
-import { Todo } from '../components/Todo';
-import Project from '../components/Project';
-import AddButton from '../components/AddButton';
+import { styled } from '@mui/system'
+import TabsUnstyled from '@mui/base/TabsUnstyled'
+import TabsListUnstyled from '@mui/base/TabsListUnstyled'
+import TabPanelUnstyled from '@mui/base/TabPanelUnstyled'
+import { buttonUnstyledClasses } from '@mui/base/ButtonUnstyled'
+import TabUnstyled, { tabUnstyledClasses } from '@mui/base/TabUnstyled'
+import { Todo } from '../components/Todo'
+import Project from '../components/Project'
+import AddButton from '../components/AddButton'
 import LongMenu from '../components/Menu'
-import { useContext } from 'react';
-
+import { useContext } from 'react'
+import { useAuth } from '../context/AuthContext'
 
 // ENVIAR TODO ESSE STYLE PARA CSS
 const Tab = styled(TabUnstyled)`
@@ -34,13 +34,12 @@ const Tab = styled(TabUnstyled)`
   align-items: center;
 
   &:hover {
-    background-color: #502AA3;
+    background-color: #502aa3;
   }
 
   &:focus {
     color: #fff;
     border-radius: 4px;
-  
   }
 
   &.${tabUnstyledClasses.selected} {
@@ -52,110 +51,68 @@ const Tab = styled(TabUnstyled)`
     opacity: 0.5;
     cursor: not-allowed;
   }
-`;
+`
 
 const TabPanel = styled(TabPanelUnstyled)`
   width: 100%;
   font-family: IBM Plex Sans, sans-serif;
   font-size: 0.875rem;
-`;
+`
 
 const TabsList = styled(TabsListUnstyled)`
   min-width: 100%;
   min-height: 40px;
-  background-color: #3C1F7B;
+  background-color: #3c1f7b;
   border-radius: 4px;
   margin-bottom: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   align-content: space-between;
-`;
+`
 
-export default function Principal(todo:any) {
-  
+export default function Principal(todo: any) {
   const { todos, projects } = useContext(TodoContext)
-
-
-  // const projects = [
-  //   { id: 1, name: 'React'},
-  //   { id: 2, name: 'Work'},
-  //   { id: 3, name: 'Other'}
-  // ]
-  
-  
-//   const todos = [
-//     {
-//         id : 'd54sd4',
-//         text : 'Dinner with Anna',
-//         time : '10:00 AM',
-//         date : '16/02/2021',
-//         day : 'February 16th',
-//         checked : true,
-//         project : 'React',
-//         Note : 'dont forget to give her a bouquet of flowers',
-//     },
-//     {
-//       id : 'd54ff4',
-//       text : 'Testando mt',
-//       time : '10:00 AM',
-//       date : '20/02/2021',
-//       day : 'February 20th',
-//       checked : false,
-//       project : 'Other',
-//       Note : 'forget everything',
-//     }
-// ]
- 
+  const { currentUser } = useAuth()
 
   return (
     <div id="schedule-page">
-      
       <div className="container">
         <header>
-          <h1> .yourtime</h1>
-         <div className="menu">
-          <LongMenu />
-         </div>
+          <h1>
+            {' '}
+            .yourtime
+            {currentUser && <pre> {JSON.stringify(currentUser, null, 2)}</pre>}
+          </h1>
+          <div className="menu">
+            <LongMenu />
+          </div>
+        </header>
 
-         </header>
-         
-           
-          <TabsUnstyled defaultValue={0}>
-      <TabsList>
-        <Tab>Schedules</Tab>
-        <Tab>Projects</Tab>
-        
-      </TabsList>
-      <TabPanel value={0}>
-      
-{/* //conteudo 1 da tab SCHEDULE // */}
-<br/>
+        <TabsUnstyled defaultValue={0}>
+          <TabsList>
+            <Tab>Schedules</Tab>
+            <Tab>Projects</Tab>
+          </TabsList>
+          <TabPanel value={0}>
+            {/* //conteudo 1 da tab SCHEDULE // */}
+            <br />
 
- {todos.map((todo: { id: any; }) => 
-                   ( <Todo todo={todo} key={todo.id} />    )
-                )}
+            {todos.map((todo: { id: any }) => (
+              <Todo todo={todo} key={todo.id} />
+            ))}
+          </TabPanel>
+          <TabPanel value={1}>
+            {/* //Conteudo 2 da tab PROJECTS // */}
+            <br />
 
-      </TabPanel>
-      <TabPanel value={1}>
-{/* //Conteudo 2 da tab PROJECTS // */}
-<br/>
-
-{projects.map((project: { id: any; }) => (
-                <Project
-                  project={project}
-                  key={project.id}
-                
-                />
-              ))}
-
-      </TabPanel>
-      
-    </TabsUnstyled>
-        </div>
-        <AddButton />
+            {projects.map((project: { id: any }) => (
+              <Project project={project} key={project.id} />
+            ))}
+          </TabPanel>
+        </TabsUnstyled>
+      </div>
+      <AddButton />
     </div>
-   
-
   )
 }

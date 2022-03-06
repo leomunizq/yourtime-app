@@ -1,37 +1,37 @@
+import { Routes, Route } from 'react-router'
+import { BrowserRouter } from 'react-router-dom'
+// import firebase from './services/firebase';
+// import auth from './services/firebase';
 
-import {Routes, Route } from 'react-router'
-import { BrowserRouter } from 'react-router-dom';
-// import { AuthContextProvider } from './contexts/AuthContext';
+import AuthContextProvider from './context/AuthContext'
 
-
-import { Home } from "./pages/Home";
-import { Login } from "./pages/Login";
-import { NewSchedule } from './pages/NewSchedule';
-import { Projects } from './pages/Projects';
-import { Register } from './pages/Register';
-import { Schedule } from './pages/Schedule';
-import Principal from './pages/Principal';
-import {TodoContextProvider} from './context/index'
-
+import { Home } from './pages/Home'
+import Login from './pages/Login'
+import { NewSchedule } from './pages/NewSchedule'
+import { Projects } from './pages/Projects'
+import { Register } from './pages/Register'
+import { Schedule } from './pages/Schedule'
+import Principal from './pages/Principal'
+import { TodoContextProvider } from './context/index'
 
 function App() {
   return (
     <BrowserRouter>
-    {/* <AuthContextProvider> */}
-    <TodoContextProvider>
-    <Routes>
-    <Route path="/" element={<Home />} /> 
-    <Route path="/login" element={<Login />}  />
-    <Route path="/register" element={<Register />}  />
-    <Route path="/schedule" element={<Schedule />}  />
-    <Route path="/principal" element={<Principal />}  />
-        <Route path="/newschedule" element={<NewSchedule />}  />
-        <Route path="/projects" element={<Projects />}  />
-    </Routes>
-    </TodoContextProvider>
-    {/* </AuthContextProvider> */}
+      <AuthContextProvider>
+        <TodoContextProvider>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/schedule" element={<Schedule />} />
+            <Route path="/principal" element={<Principal />} />
+            <Route path="/newschedule" element={<NewSchedule />} />
+            <Route path="/projects" element={<Projects />} />
+          </Routes>
+        </TodoContextProvider>
+      </AuthContextProvider>
     </BrowserRouter>
-  );
+  )
 }
 
-export default App;
+export default App

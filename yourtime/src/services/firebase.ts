@@ -1,5 +1,6 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/firestore'
+import {getAuth} from'firebase/auth'
 import { initializeApp } from 'firebase/app';
 
 import {
@@ -20,6 +21,7 @@ const firebaseConfig = {
 
 //lembrar de colocar as chaves em ambiente local
 
-firebase.initializeApp(firebaseConfig)
+const app = firebase.initializeApp(firebaseConfig)
 
+export const auth = getAuth(app);
 export default firebase
