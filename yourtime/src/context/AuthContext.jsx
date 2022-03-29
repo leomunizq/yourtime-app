@@ -5,6 +5,7 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
   GoogleAuthProvider,
+  FacebookAuthProvider,
   signInWithPopup,
   signOut,
   uid
@@ -15,7 +16,8 @@ const AuthContext = createContext({
   register: () => Promise,
   login: () => Promise,
   logout: () => Promise,
-  signInWithGoogle: () => Promise
+  signInWithGoogle: () => Promise,
+  signInWithFacebook: () => Promise
 })
 
 export const useAuth = () => useContext(AuthContext)
@@ -44,6 +46,10 @@ export default function AuthContextProvider({ children }) {
     const provider = new GoogleAuthProvider()
     return signInWithPopup(auth, provider)
   }
+  function signInWithFacebook() {
+    const provider = new FacebookAuthProvider()
+    return signInWithPopup(auth, provider)
+  }
 
   function logout() {
     return signOut(auth)
@@ -54,7 +60,8 @@ export default function AuthContextProvider({ children }) {
     register,
     login,
     signInWithGoogle,
-    logout
+    logout,
+    signInWithFacebook
   }
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }

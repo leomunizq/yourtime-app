@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import firebase from '../services/firebase'
 import { auth } from '../services/firebase'
 import { useAuth } from '../context/AuthContext'
+import { Todo } from '../components/Todo'
 
 import 'firebase/compat/firestore'
 
@@ -12,7 +13,7 @@ export function useTodos() {
   useEffect(() => {
     let unsubscribe = firebase
       .firestore()
-      .collection(`todos ${auth.currentUser.uid}`)
+      .collection(`todos ${auth.currentUser?.uid}`)
       .onSnapshot(snapshot => {
         const data = snapshot.docs.map(doc => {
           return {
@@ -23,7 +24,7 @@ export function useTodos() {
         setTodos(data)
       })
     return () => unsubscribe()
-  }, [])
+  }, [setTodos, todos])
 
   return todos
 }
@@ -34,7 +35,7 @@ export function useProjects(todos) {
   useEffect(() => {
     let unsubscribe = firebase
       .firestore()
-      .collection(`projects ${auth?.currentUser.uid}`)
+      .collection(`projects ${auth.currentUser?.uid}`)
       .onSnapshot(snapshot => {
         const data = snapshot.docs.map(doc => {
           const project = doc.data().name
@@ -47,6 +48,6 @@ export function useProjects(todos) {
         setProjects(data)
       })
     return () => unsubscribe()
-  }, [])
+  }, [setProjects, projects])
   return projects
 }

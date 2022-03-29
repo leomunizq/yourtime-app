@@ -39,6 +39,11 @@
             background: #262626;
             margin-top: 30px;
             padding-left: 10px;
+            color: #fafafa;
+        }
+        form input:focus {
+            background: #fafafa;
+            color: #1d1d1d;
         }
         form button {
             margin-top: 50px;

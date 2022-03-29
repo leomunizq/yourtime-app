@@ -16,7 +16,14 @@ export function Register() {
   const toast = useToast()
   const navigate = useNavigate()
 
-  const { register } = useAuth()
+  const {
+    register,
+    login,
+    currentUser,
+    onAuthStateChanged,
+    signInWithGoogle,
+    signInWithFacebook
+  } = useAuth()
 
   return (
     <div id="register-page">
@@ -84,8 +91,26 @@ export function Register() {
         <div className="loginwith">
           <p id="login">sign in with</p>
           <img src={appleImg} className="grow" alt="" />
-          <img src={facebookImg} className="grow" alt="" />
-          <img src={googleImg} className="grow" alt="" />
+          <img
+            onClick={() => {
+              signInWithFacebook()
+                .then(user => navigate('/principal'))
+                .catch(error => console.log(error))
+            }}
+            src={facebookImg}
+            className="grow"
+            alt=""
+          />
+          <img
+            onClick={() => {
+              signInWithGoogle()
+                .then(user => navigate('/principal'))
+                .catch(error => console.log(error))
+            }}
+            src={googleImg}
+            className="grow"
+            alt=""
+          />
         </div>
       </div>
     </div>

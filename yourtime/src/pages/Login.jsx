@@ -18,7 +18,17 @@ export default function Login() {
   // const [isSubmitting, setIsSubmitting] = useState(false)
   const toast = useToast()
 
-  const { login, currentUser, onAuthStateChanged, signInWithGoogle } = useAuth()
+  async function handlenRegister() {
+    navigate('/register')
+  }
+
+  const {
+    login,
+    currentUser,
+    onAuthStateChanged,
+    signInWithGoogle,
+    signInWithFacebook
+  } = useAuth()
 
   return (
     <div id="login-page">
@@ -32,7 +42,7 @@ export default function Login() {
             .
             <p id="left">
               If you don't have an account register <br /> You can{' '}
-              <a href="#">Register here!</a>
+              <a onClick={handlenRegister}>Register here!</a>
             </p>
           </div>
           <div className="form">
@@ -95,7 +105,16 @@ export default function Login() {
           <div className="loginwith">
             <p id="login">sign in with</p>
             <img src={appleImg} className="grow" alt="" />
-            <img src={facebookImg} className="grow" alt="" />
+            <img
+              onClick={() => {
+                signInWithFacebook()
+                  .then(user => navigate('/principal'))
+                  .catch(error => console.log(error))
+              }}
+              src={facebookImg}
+              className="grow"
+              alt=""
+            />
             <img
               onClick={() => {
                 signInWithGoogle()

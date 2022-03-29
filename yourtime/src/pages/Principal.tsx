@@ -82,8 +82,8 @@ export default function Principal(todo: any) {
   console.log(auth.currentUser?.uid)
 
   //privated page
-  if (currentUser === null) {
-    return <Navigate to="/" />
+  if (auth.currentUser?.uid === undefined || null) {
+    return <Navigate to="/login" />
   }
 
   return (
