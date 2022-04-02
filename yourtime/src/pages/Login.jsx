@@ -1,8 +1,14 @@
+import React from 'react'
+
 import { useState } from 'react'
-import { useToast } from '@chakra-ui/toast'
+
 import { useAuth } from '../context/AuthContext'
 import { Button } from '../components/Button'
 import { useNavigate } from 'react-router-dom'
+
+import { Snackbar, Slide } from '@mui/material'
+
+import MuiAlert, { AlertProps } from '@mui/material/Alert'
 
 import '../styles/login.scss'
 
@@ -16,11 +22,30 @@ export default function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   // const [isSubmitting, setIsSubmitting] = useState(false)
-  const toast = useToast()
 
   async function handlenRegister() {
     navigate('/register')
   }
+
+  //Snackbar erro notification
+  const [errei, setErrei] = useState(null)
+
+  const [open, setOpen] = useState(false)
+
+  const handleSnack = () => {
+    setOpen(true)
+  }
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return
+    }
+    setOpen(false)
+  }
+
+  const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />
+  })
 
   const {
     login,
@@ -51,12 +76,8 @@ export default function Login() {
                 e.preventDefault()
 
                 if (!email || !password) {
-                  toast({
-                    description: 'Credentials not valid.',
-                    status: 'error',
-                    duration: 9000,
-                    isClosable: true
-                  })
+                  setErrei('Credentials Not Valid')
+                  handleSnack()
                   return
                 }
 
@@ -67,13 +88,8 @@ export default function Login() {
                   })
                   .catch(error => {
                     console.log(error.message)
-
-                    toast({
-                      description: error.message,
-                      status: 'error',
-                      duration: 9000,
-                      isClosable: true
-                    })
+                    setErrei(error.message)
+                    handleSnack()
                   })
               }}
             >
@@ -128,6 +144,20 @@ export default function Login() {
           </div>
         </div>
       </main>
+      <Snackbar
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center'
+        }}
+        open={open}
+        autoHideDuration={5000}
+        onClick={handleClose}
+        TransitionComponent={Slide}
+      >
+        <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
+          {errei}
+        </Alert>
+      </Snackbar>
     </div>
   )
 }

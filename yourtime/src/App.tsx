@@ -1,9 +1,7 @@
 import { Routes, Route } from 'react-router'
 import { BrowserRouter } from 'react-router-dom'
-// import firebase from './services/firebase';
-// import auth from './services/firebase';
 
-import AuthContextProvider, { useAuth } from './context/AuthContext'
+import AuthContextProvider from './context/AuthContext'
 
 import { Home } from './pages/Home'
 import Login from './pages/Login'
@@ -13,7 +11,6 @@ import { Register } from './pages/Register'
 import { Schedule } from './pages/Schedule'
 import Principal from './pages/Principal'
 import { TodoContextProvider } from './context/index'
-import { Navigate } from 'react-router-dom'
 
 export default function App() {
   return (

@@ -1,5 +1,10 @@
+import React from 'react'
 import { useState } from 'react'
-import { useToast } from '@chakra-ui/toast'
+
+import { Snackbar, Slide } from '@mui/material'
+
+import MuiAlert, { AlertProps } from '@mui/material/Alert'
+
 import { useNavigate } from 'react-router-dom'
 import '../styles/register.scss'
 
@@ -12,18 +17,36 @@ import { useAuth } from '../context/AuthContext'
 export function Register() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const toast = useToast()
+
   const navigate = useNavigate()
 
   const {
     register,
     login,
-    currentUser,
     onAuthStateChanged,
     signInWithGoogle,
     signInWithFacebook
   } = useAuth()
+
+  //Snackbar erro notification
+  const [errei, setErrei] = useState(null)
+
+  const [open, setOpen] = useState(false)
+
+  const handleSnack = () => {
+    setOpen(true)
+  }
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return
+    }
+    setOpen(false)
+  }
+
+  const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />
+  })
 
   return (
     <div id="register-page">
@@ -39,12 +62,8 @@ export function Register() {
             e.preventDefault()
 
             if (!email || !password) {
-              toast({
-                description: 'Credentials not valid.',
-                status: 'error',
-                duration: 9000,
-                isClosable: true
-              })
+              setErrei('Credentials Not Valid')
+              handleSnack()
               return
             }
 
@@ -54,12 +73,8 @@ export function Register() {
               })
               .catch(error => {
                 console.log(error.message)
-                toast({
-                  description: error.message,
-                  status: 'error',
-                  duration: 9000,
-                  isClosable: true
-                })
+                setErrei(error.message)
+                handleSnack()
               })
           }}
         >
@@ -113,6 +128,20 @@ export function Register() {
           />
         </div>
       </div>
+      <Snackbar
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center'
+        }}
+        open={open}
+        autoHideDuration={5000}
+        onClick={handleClose}
+        TransitionComponent={Slide}
+      >
+        <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
+          {errei}
+        </Alert>
+      </Snackbar>
     </div>
   )
 }
