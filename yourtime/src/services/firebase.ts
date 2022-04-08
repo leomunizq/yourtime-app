@@ -1,12 +1,12 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/firestore'
 import {getAuth} from'firebase/auth'
-import { initializeApp } from 'firebase/app';
+// import { initializeApp } from 'firebase/app';
 
-import {
-  onSnapshot,
-  doc,
-} from 'firebase/firestore';
+// import {
+//   onSnapshot,
+//   doc,
+// } from 'firebase/firestore';
 
 
 const firebaseConfig = {

@@ -13,8 +13,6 @@ import Modal from './Modal'
 import RenameProject from './RenameProject'
 import { auth } from '../services/firebase'
 
-// import CheckBoxOutlinedIcon from '@mui/icons-material/CheckBoxOutlined';
-
 export function Project({ project, todo }: any) {
   const { todos, projects } = useContext(TodoContext)
 
