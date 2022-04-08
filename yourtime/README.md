@@ -1,46 +1,47 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+<img src="https://raw.githubusercontent.com/leomunizq/yourtime-app/master/yourtime/src/assets/images/Yourtime-592f1%20-%20iPhone%20X%20-%202022-04-08%20at%207.25.06%20PM.jpg" alt="exemplo imagem"> <img src="https://raw.githubusercontent.com/leomunizq/yourtime-app/master/yourtime/src/assets/images/Localhost%20-%20iPhone%20X%20-%202022-04-08%20at%208.06.29%20PM.jpg" alt="exemplo imagem">
 
-In the project directory, you can run:
 
-### `yarn start`
+## :memo: Description
+This is a simple to-do app, organized by projects.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `yarn test`
+## :books: Functionalities
+* Authentication with <b>Google</b>
+* * Authentication with <b>Facebook</b>
+* * Authentication with <b>Apple</b>
+* Creation Project
+* Creating To-do for the project
+* Edit and Delete Project (and all To-dos in the project)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+## :wrench: Technologies used
+* React;
+* TypeScript;
+* Firebase (Auth, Hosting, Storage);
+* Firestore Database;
+* Material UI
+* Node + NPM;
+* Yarn;
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🔖 Layout
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+In the links below you will find the layout of the web project. Remembering that you need to have an account on [Figma](http://figma.com/) to access it.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [Layout Web](https://www.figma.com/file/h5YYP2G4hEfLhphhuReYC1/Make-Your-Time---To-Do-List-Apps?node-id=0%3A1)
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## :rocket: Deploy
+https://yourtime-592f1.web.app/
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## :soon: Future implementation
+* Reminder alert :bell:	
+* Mobile Version for Play Store :iphone:	
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## :dart: Project Status
+:hammer:Under construction:hammer:	
