@@ -23,8 +23,8 @@ This is a simple to-do app, organized by projects.
 * Firebase (Auth, Hosting, Storage);
 * Firestore Database;
 * Material UI
-* Node + NPM;
-* Yarn;
+*  NPM;
+
 
 ## 🔖 Layout
 
